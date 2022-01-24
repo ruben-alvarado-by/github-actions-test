@@ -14,3 +14,8 @@ jobs:
           node -v
           echo "check npm version"
           npm -v
+      - name: python command
+        run: |
+          import platform
+          print(platform.processsor())
+        shell: python
