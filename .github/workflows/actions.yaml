@@ -8,14 +8,14 @@ jobs:
         run: |
           pwd 
           echo "--------------"
-          ls
+          ls -a
       - name: Checkout
         uses: actions/checkout@v1
       - name: List Files after checkout
         run: |
           pwd 
           echo "--------------"
-          ls
+          ls -a
       - name: simple JS Actions
         id: greet
         uses: actions/hello-world-javascript-action@v1
