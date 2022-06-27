@@ -35,13 +35,13 @@ jobs:
         run: ssh prometheusvm 'git clone git@github.com:BY-Product-Development/exec-ecom-azure-infrastructure.git'
       - name: Verify prometheus Folders
         run: |
-        DIR=/prometheus-storage/dev
-        if [ -d "$DIR" ];
-        then
-            echo "$DIR directory exists."
-        else
-          echo "$DIR directory does not exist creation is needed."
-        fi
+          DIR=/prometheus-storage/dev
+          if [ -d "$DIR" ];
+          then
+              echo "$DIR directory exists."
+          else
+            echo "$DIR directory does not exist creation is needed."
+          fi
       # - name: Check out the source
       #   run: ssh prometheusvm 'cd my-application && git fetch && git reset --hard origin/master'
 
