@@ -33,7 +33,7 @@ jobs:
 
       # - name: Clone 
       #   run: ssh prometheusvm 'git clone git@github.com:BY-Product-Development/exec-ecom-azure-infrastructure.git'
-      - name: Verify prometheus Folders
+      - name: Checkout Code
         run: |
           ssh prometheusvm '
             DIR=/home/azureuser/exec-ecom-azure-infrastructure
@@ -50,8 +50,36 @@ jobs:
           '
           
           
-      # - name: Check out the source
-      #   run: ssh prometheusvm 'cd my-application && git fetch && git reset --hard origin/master'
+      - name: Check Dev Folder
+        run: |
+          ssh prometheusvm '
+            DIR=/prometheus-storage/dev
+            if [ ! -d "$DIR" ];
+            then
+              mkdir -p "$DIR"
+              sudo chown -R azureuser:azureuser "$DIR"
+            fi
+          '
+      - name: Check Stg Folder
+        run: |
+          ssh prometheusvm '
+            DIR=/prometheus-storage/stg
+            if [ ! -d "$DIR" ];
+            then
+              mkdir -p "$DIR"
+              sudo chown -R azureuser:azureuser "$DIR"
+            fi
+          '
+      - name: Check prd Folder
+        run: |
+          ssh prometheusvm '
+            DIR=/prometheus-storage/prd
+            if [ ! -d "$DIR" ];
+            then
+              mkdir -p "$DIR"
+              sudo chown -R azureuser:azureuser "$DIR"
+            fi
+          '
 
       # - name: Start the server
       #   if: ${{ always() }}
