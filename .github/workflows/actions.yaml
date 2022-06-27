@@ -39,10 +39,13 @@ jobs:
             DIR=/home/azureuser/exec-ecom-azure-infrastructure
             if [ -d "$DIR" ];
             then
+                cd $DIR
+                git checkout ecom-10835-Prometheus-metrics
+                git pull 
                 echo "$DIR directory exists."
             else
-              echo "$DIR directory does not exist creation is needed."
-              
+              git clone git@github.com:BY-Product-Development/exec-ecom-azure-infrastructure.git
+              git checkout ecom-10835-Prometheus-metrics
             fi
           '
           
