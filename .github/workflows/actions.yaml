@@ -1,13 +1,13 @@
 name: CI
-on: [push, pull_request]
+on: [push]
 jobs:
   # test:
   #   ...
   deploy:
     name: "Deploy to VM"
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-    # needs: test
+    # if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    # # needs: test
     steps:
       - name: Configure SSH
         run: |
