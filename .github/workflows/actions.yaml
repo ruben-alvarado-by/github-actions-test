@@ -7,8 +7,13 @@ jobs:
     name: "Deploy to VM"
     runs-on: ubuntu-latest
     # if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-    # # needs: test
+
     steps:
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
       - name: Configure SSH
         run: |
           mkdir -p ~/.ssh/
