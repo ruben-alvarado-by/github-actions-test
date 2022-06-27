@@ -31,9 +31,8 @@ jobs:
           SSH_KEY: ${{ secrets.SSH_KEY }}
           SSH_HOST: ${{ secrets.SSH_HOST }}
 
-      - name: Stop the server
-        run: ssh prometheusvm 'echo hola'
-
+      - name: Clone 
+        run: ssh prometheusvm 'git clone git@github.com:BY-Product-Development/exec-ecom-azure-infrastructure.git'
       # - name: Check out the source
       #   run: ssh prometheusvm 'cd my-application && git fetch && git reset --hard origin/master'
 
