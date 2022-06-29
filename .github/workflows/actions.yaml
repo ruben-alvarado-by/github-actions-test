@@ -144,6 +144,7 @@ jobs:
             fi
           '
       - name: Deploy Docker-Compose 
+        if: success()
         run: |
             ssh prometheusvm '
               DIR=/home/azureuser/exec-ecom-azure-infrastructure/grafana-prometheus/global-prometheus
