@@ -67,6 +67,8 @@ jobs:
             then
               mkdir -p "$DIR"
               sudo chown -R azureuser:azureuser "$DIR"
+            else
+              echo "$DIR already exists"
             fi
           '
       - name: Check Stg Folder
@@ -77,6 +79,8 @@ jobs:
             then
               mkdir -p "$DIR"
               sudo chown -R azureuser:azureuser "$DIR"
+            else
+              echo "$DIR already exists"
             fi
           '
       - name: Check prd Folder
@@ -87,6 +91,8 @@ jobs:
             then
               mkdir -p "$DIR"
               sudo chown -R azureuser:azureuser "$DIR"
+            else
+              echo "$DIR already exists"
             fi
           '
       - name: Check psr Folder
@@ -97,6 +103,8 @@ jobs:
             then
               mkdir -p "$DIR"
               sudo chown -R azureuser:azureuser "$DIR"
+            else
+              echo "$DIR already exists"
             fi
           '
       - name: Check prd-euw Folder
@@ -107,6 +115,8 @@ jobs:
             then
               mkdir -p "$DIR"
               sudo chown -R azureuser:azureuser "$DIR"
+            else
+              echo "$DIR already exists"
             fi
           '
 
