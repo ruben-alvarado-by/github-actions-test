@@ -143,8 +143,6 @@ jobs:
               echo "$DIR already exists"
             fi
           '
-      - name: Check Success
-        if: success()
       - name: Deploy Docker-Compose 
         run: |
             ssh prometheusvm '
