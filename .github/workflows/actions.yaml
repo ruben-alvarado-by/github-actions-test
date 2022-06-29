@@ -119,6 +119,30 @@ jobs:
               echo "$DIR already exists"
             fi
           '
+      - name: Check grafana data Folder
+        run: |
+          ssh prometheusvm '
+            DIR=/prometheus/grafana
+            if [ ! -d "$DIR" ];
+            then
+              mkdir -p "$DIR"
+              sudo chown -R 472:472 "$DIR"
+            else
+              echo "$DIR already exists"
+            fi
+          '
+      - name: Check grafana config Folder
+        run: |
+          ssh prometheusvm '
+            DIR=/prometheus/etc
+            if [ ! -d "$DIR" ];
+            then
+              mkdir -p "$DIR"
+              sudo chown -R 472:472 "$DIR"
+            else
+              echo "$DIR already exists"
+            fi
+          '
 
       # - name: Start the server
       #   if: ${{ always() }}
