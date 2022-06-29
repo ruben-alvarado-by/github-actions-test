@@ -143,6 +143,16 @@ jobs:
               echo "$DIR already exists"
             fi
           '
+      - name: Check Success
+        if: success()
+      - name: Deploy Docker-Compose 
+        run: |
+            ssh prometheusvm '
+              DIR=/home/azureuser/exec-ecom-azure-infrastructure/grafana-prometheus/global-prometheus
+              cd "$DIR"
+              docker ps -a
+              docker-compose up --build -d  
+            '
 
       # - name: Start the server
       #   if: ${{ always() }}
