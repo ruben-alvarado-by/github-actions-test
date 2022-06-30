@@ -26,19 +26,19 @@ jobs:
       - name: Configure SSH
         run: |
           mkdir -p ~/.ssh/
-          echo "$SSH_KEY" > ~/.ssh/prometheusvm.key
+          echo "$PROMETHEUS_SSH_KEY" > ~/.ssh/prometheusvm.key
           chmod 600 ~/.ssh/prometheusvm.key
           cat >>~/.ssh/config <<END
           Host prometheusvm
-            HostName $SSH_HOST
-            User $SSH_USER
+            HostName $PROMETHEUS_SSH_HOST
+            User $PROMETHEUS_SSH_USER
             IdentityFile ~/.ssh/prometheusvm.key
             StrictHostKeyChecking no
           END
         env:
-          SSH_USER: ${{ secrets.SSH_USER }}
-          SSH_KEY: ${{ secrets.SSH_KEY }}
-          SSH_HOST: ${{ secrets.SSH_HOST }}
+          PROMETHEUS_SSH_USER: ${{ secrets.PROMETHEUS_SSH_USER }}
+          PROMETHEUS_SSH_KEY: ${{ secrets.PROMETHEUS_SSH_KEY }}
+          PROMETHEUS_SSH_HOST: ${{ secrets.PROMETHEUS_SSH_HOST }}
 
       # - name: Clone 
       #   run: ssh prometheusvm 'git clone git@github.com:BY-Product-Development/exec-ecom-azure-infrastructure.git'
