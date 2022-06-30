@@ -152,10 +152,6 @@ jobs:
               docker ps -a
               docker-compose up --build -d  
             '
-
-      # - name: Start the server
-      #   if: ${{ always() }}
-      #   run: ssh prometheusvm 'sudo systemctl start my-application'
 # name: Actions Workflow
 # on: 
 #   # schedule:
